@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telliskivi Creative City - Turundus ja Kommunikatsioon</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F4F4F4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #FF4500;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .toolbar {
+            margin-bottom: 10px;
+        }
+
+        .toolbar button, .toolbar input {
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #FF7F50;
+            color: white;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        .toolbar button:hover {
+            background-color: #FF4500;
+        }
+
+        .toolbar input {
+            width: 50px;
+        }
+
+        canvas {
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            background-color: #FFD700;
+            color: black;
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #FF7F50;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Turundus ja Kommunikatsioon</h1>
+
+    <p>Kas oled see inimene, kes suudab korraga hoida käigus mitu ideed ja kõike täpselt hallata? Otsime kommunikatsioonigeeniust, kes armastab lugude jutustamist sama palju kui projektide juhtimist – ja kes ei pelga kohvikus loomingulist ajurünnakut. Paindlikkus on võtmesõna – siin liiguvad asjad kiiresti ja iga päev toob kaasa uusi väljakutseid. Meie väike, kokkuhoidev tiim toimib kui pere, nii et kui oled kiire kohaneja, armastad teisi aidata ja naudid dünaamilist, pidevalt muutuvat keskkonda, siis sobid ideaalselt meie sekka. Oled valmis hüppama seiklustesse? Me ootame sind!</p>
+
+    <form id="application-form">
+        <!-- Nimi -->
+        <div class="form-group">
+            <label for="name">Nimi</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Sotsiaalmeedia -->
+        <div class="form-group">
+            <label for="social-media">Sinu sotsiaalmeedia. Ära ole häbelik, usume, et sa meeldid meile sellisena nagu sa oled (LinkedIn, Instagram, TikTok, jne)</label>
+            <input type="text" id="social-media" name="social-media" required>
+        </div>
+
+        <!-- Why Fit -->
+        <div class="form-group">
+            <label for="why-fit">Miks see töö just sinule sobib?</label>
+            <textarea id="why-fit" name="why-fit" minlength="250" maxlength="300" required></textarea>
+            <div class="char-count" id="char-count-why-fit">0/300</div>
+        </div>
+
+        <!-- Contribution -->
+        <div class="form-group">
+            <label for="contribution">Mida sa praegu teed ja mis maailmas tänu sinu panusele teisiti on?</label>
+            <textarea id="contribution" name="contribution" minlength="250" maxlength="300" required></textarea>
+            <div class="char-count" id="char-count-contribution">0/300</div>
+        </div>
+
+        <!-- Event Pitch -->
+        <div class="form-group">
+            <label for="event-pitch">Pitch an event that is missing in Telliskivi Creative City (in English)</label>
+            <textarea id="event-pitch" name="event-pitch" minlength="250" maxlength="300" required></textarea>
+            <div class="char-count" id="char-count-event-pitch">0/300</div>
+        </div>
+
+        <!-- Project Management (in English) -->
+        <div class="form-group">
+            <label for="project">Describe a project you've managed (in English)</label>
+            <textarea id="project" name="project" minlength="250" maxlength="300" required></textarea>
+            <div class="char-count" id="char-count-project">0/300</div>
+        </div>
+
+        <!-- Timeline Planning (up to 400 characters) -->
+        <div class="form-group">
+            <label for="timeline">6 nädala pärast toimub suursündmus. Kirjelda oma ajaraami kuidas sa plaaniksid sündmust ellu viia</label>
+            <textarea id="timeline" name="timeline" maxlength="400" required></textarea>
+            <div class="char-count" id="char-count-timeline">0/400</div>
+        </div>
+
+        <!-- Exhibition -->
+        <div class="form-group">
+            <label for="exhibition">Kui sina oleksid näitus siis milline ja mis oleks näituse pealkiri?</label>
+            <textarea id="exhibition" name="exhibition" minlength="250" maxlength="300" required></textarea>
+            <div class="char-count" id="char-count-exhibition">0/300</div>
+        </div>
+
+        <!-- Draw Yourself -->
+        <h2>Joonista endast pilt</h2>
+        <div class="toolbar">
+            <button type="button" onclick="setColor('black')">Black</button>
+            <button type="button" onclick="setColor('red')">Red</button>
+            <button type="button" onclick="setColor('yellow')">Yellow</button>
+            <button type="button" onclick="setColor('green')">Green</button>
+            <button type="button" onclick="setColor('blue')">Blue</button>
+            <button type="button" onclick="setColor('white')">Eraser</button>
+            <input type="number" id="brush-size" value="2" min="1" max="10" onchange="setBrushSize(this.value)">
+        </div>
+        <canvas id="draw-canvas" width="400" height="400"></canvas>
+        <button type="button" onclick="clearCanvas()">Clear Drawing</button>
+
+        <!-- Video Upload -->
+        <div class="form-group" style="margin-top: 40px;">
+            <label for="video">Lae üles lühike video (max 1 minut) näitamaks miks sa tahaksid olla osa meie meeskonnast</label>
+            <input type="file" id="video" name="video" accept="video/*" required>
+        </div>
+
+        <!-- CV Upload -->
+        <div class="form-group">
+            <label for="cv">Lae üles oma CV</label>
+            <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+        </div>
+
+        <!-- Submit -->
+        <button class="submit-btn" type="submit">Saada ära</button>
+    </form>
+</div>
+
+<script>
+    // Character count updates
+    const textareas = document.querySelectorAll('textarea');
+    textareas.forEach(textarea => {
+        const charCount = document.querySelector(`#char-count-${textarea.id}`);
+        textarea.addEventListener('input', () => {
+            charCount.textContent = `${textarea.value.length}/${textarea.maxLength}`;
+        });
+    });
+
+    // Drawing functionality
+    const canvas = document.getElementById('draw-canvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+    let brushColor = 'black';
+    let brushSize = 2;
+
+    canvas.add
